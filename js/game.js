@@ -104,31 +104,21 @@ export default class Game {
     }
 
     onTouchS(e) {
-
-        // this.touchid = e.touches[0].identifier;
-        // this.isDown = true;
-        // this.rposx = e.touches[0].screenX;
-        // this.rposy = e.touches[0].screenY;
-
+        this.touchid = e.touches[0].identifier;
+        this.rposx = e.touches[0].screenX;
+        this.rposy = e.touches[0].screenY;
     }
     onTouchC(e) {
-        // this.isDown = false;
-        // this.me.unimpulse();
+        this.me.unimpulse();
     }
     onTouchE(e) {
-
-        // this.isDown = false;
-        // this.me.unimpulse();
-
+        this.me.unimpulse();
     }
     onTouchM(e) {
-
-
-        // if (e.touches[0].identifier != this.touchid) return;
-        // let dx = e.touches[0].screenX - this.rposx;
-        // let dy = e.touches[0].screenY - this.rposy;
-        // this.me.impulse(Math.atan2(dx, dy) - Math.PI);
-
+        if (e.touches[0].identifier != this.touchid) return;
+        let dx = e.touches[0].screenX - this.rposx;
+        let dy = e.touches[0].screenY - this.rposy;
+        this.me.impulse(Math.atan2(dx, dy) - Math.PI);
     }
 
     cameraUpdate() {
@@ -141,7 +131,7 @@ export default class Game {
         camF.copy(this.camera.position);
 
         let dis = camF.distanceTo(new THREE.Vector3(camT.x, camT.y, camT.z));
-        if (this.camTflag === 0 && dis < 10) {
+        if (this.camTflag === 0 && dis < 25) {
             this.camera.position.copy(camT);
             this.camera.lookAt(this.me.mesh.position);
         } else if (this.camTflag === 0) {
@@ -151,7 +141,7 @@ export default class Game {
             let me = this.me;
             let ts = this;
 
-            var tween = new TWEEN.Tween(camF).to(camT, 500)
+            let tween = new TWEEN.Tween(camF).to(camT, 500)
                 .easing(TWEEN.Easing.Linear.None)
                 .onUpdate(function() {
                     camera.position.x = camF.x;
@@ -162,7 +152,8 @@ export default class Game {
                 .onComplete(function() {
                     camera.lookAt(me.mesh.position);
                     ts.camTflag = 0;
-                }).start();
+                });
+             tween.start();
         }
         TWEEN.update();
     }
