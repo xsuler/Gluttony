@@ -4,7 +4,7 @@
 an Impressive 3D wechat game
 
 ## 体验版二维码
-
+![scan to play](https://github.com/xsuler/Gluttony/blob/master/code.jpg?raw=true)
 ## 游戏的策划和功能
 - 游戏世界中存在三种球体：玩家，攻击者（红色），吞噬者（绿色）
 - 玩家通过重力感应控制小球移动
