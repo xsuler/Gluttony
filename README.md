@@ -34,3 +34,9 @@ an Impressive 3D wechat game
 ## 感想
 - 开始用Laya，但是Laya没有3D的物理引擎，和其他物理引擎存在兼容问题，于是选择使用three.js。
 - 本来想做网络游戏，无奈网络同步实现困难，特别是在物理引擎下，尝试网络同步效果极差。
+
+# 作者信息
+- 苏乐
+- 2016, School of Software, Tsinghua University
+- phone: 18801005159
+- email: aeonsule@gmail.com
